@@ -16,15 +16,11 @@ if len(sys.argv) ==2:
 elif len(sys.argv) ==1:
     cur.execute("SELECT word, count FROM Tweetwordcount;")
     records = cur.fetchall()
-    sorted_records = sorted(records, key = lambda records: records[0])
     for rec in records:
         print("Total number of occurrences of '{0:s}'is: {1:d}".format(rec[0], rec[1]))
 else:
    
-    cur.execute("SELECT word, count FROM tweetwordcount ORDER BY word asc")
-    records = cur.fetchall()
-    for rec in records:
-       print rec[0], rec[1]
+    sys.exit('please input valid parameter')
 
 conn.commit()
 conn.close()    
